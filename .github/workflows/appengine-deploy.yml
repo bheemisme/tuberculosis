@@ -6,13 +6,13 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Authenticate with google cloud
         uses: google-github-actions/auth@v2
         with:
-            service_account: ${{ secrets.TUBERCULOSIS }}
+            service_account: 'sudarshan-github@tuberculosis-443609.iam.gserviceaccount.com'
             project_id: tuberculosis-443609
             credentials_json: ${{ secrets.TUBERCULOSIS_JSON }}
       - name: Set up gcloud
@@ -20,9 +20,4 @@ jobs:
         with:
           project_id: tuberculosis-443609
       - name: Deploy to App Engine
-        uses: google-github-actions/deploy-appengine@v1
-        with:
-            project_id: tuberculosis-443609
-            version: 'v${{ github.run_number }}'
-            promote: true
-
+        run: gcloud app deploy --project tuberculosis-443609
