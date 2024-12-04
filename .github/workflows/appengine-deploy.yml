@@ -14,6 +14,7 @@ jobs:
         with:
             service_account_key: ${{ secrets.TUBERCULOSIS }}
             project_idd: tuberculosis-443609
+            credentials_json: ${{ secrets.TUBERCULOSIS_JSON }}
       - name: Set up gcloud
         uses: google-github-actions/setup-gcloud@v1
         with:
