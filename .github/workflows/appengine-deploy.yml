@@ -9,6 +9,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
+      - name: Authenticate with google cloud
+        uses: google-github-actions/auth@v0
+        with:
+            serviceAccountKey: ${{ secrets.TUBERCULOSIS }}
+            projectId: tuberculosis-443609
       - name: Set up gcloud
         uses: google-github-actions/setup-gcloud@v1
         with:
@@ -21,4 +26,3 @@ jobs:
             version: 'v${{ github.run_number }}'
             promote: true
 
-            
