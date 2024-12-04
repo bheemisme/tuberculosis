@@ -20,6 +20,6 @@ jobs:
         with:
           project_id: tuberculosis-443609
       - name: Deploy to App Engine
-        run: gcloud app deploy --project tuberculosis-443609 --service-account=sudarshan-github@tuberculosis-443609.iam.gserviceaccount.com
+        run: gcloud app deploy --project tuberculosis-443609 --service-account sudarshan-github@tuberculosis-443609.iam.gserviceaccount.com
 
 
