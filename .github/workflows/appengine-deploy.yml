@@ -12,7 +12,7 @@ jobs:
       - name: Authenticate with google cloud
         uses: google-github-actions/auth@v2
         with:
-            service_account: 'sudarshan-github@tuberculosis-443609.iam.gserviceaccount.com'
+            service_account: sudarshan-github@tuberculosis-443609.iam.gserviceaccount.com
             project_id: tuberculosis-443609
             credentials_json: ${{ secrets.TUBERCULOSIS_JSON }}
       - name: Set up gcloud
@@ -21,5 +21,5 @@ jobs:
           project_id: tuberculosis-443609
       - name: Deploy to App Engine
         run: gcloud app deploy --project tuberculosis-443609 --service-account=sudarshan-github@tuberculosis-443609.iam.gserviceaccount.com
-        
+
 
