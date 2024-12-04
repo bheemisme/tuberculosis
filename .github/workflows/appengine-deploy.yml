@@ -1,0 +1,24 @@
+name: Deploy to App Engine
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          service_account_key: ${{ secrets.TUBERCULOSIS }}
+          project_id: tuberculosis-443609
+      - name: Deploy to App Engine
+        uses: google-github-actions/deploy-appengine@v1
+        with:
+            project_id: tuberculosis-443609
+            version: 'v${{ github.run_number }}'
+            promote: true
+
+            
